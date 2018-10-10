@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+CLOUDSDK_CORE_PROJECT=$(gcloud config get-value project)
 IMAGE="eu.gcr.io/${CLOUDSDK_CORE_PROJECT}/${CIRCLE_PROJECT_REPONAME}"
 echo "Image: ${IMAGE}"
 
