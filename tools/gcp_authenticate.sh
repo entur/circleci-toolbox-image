@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Authenticate with goocle cloud. Requires GCLOUD_SERVICE_KEY
+# Authenticate with google cloud. Requires GCLOUD_SERVICE_KEY
 
 set -euo pipefail
 
