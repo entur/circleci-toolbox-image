@@ -8,3 +8,4 @@ tar -xvzf google-cloud-sdk-${VER}.tar.gz
 ./google-cloud-sdk/install.sh -q
 ./google-cloud-sdk/bin/gcloud components update
 rm google-cloud-sdk-${VER}.tar.gz;
+PATH="/google-cloud-sdk/bin:${PATH}"
