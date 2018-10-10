@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/build-image
+    environment:
+      DEBIAN_FRONTEND: "noninteractive"
+    steps:
+      - checkout
+      - run: tools/gcp_authenticate.sh
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: tools/docker_login.sh
+      - run: tools/docker_build_push.sh
