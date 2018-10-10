@@ -20,5 +20,8 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs npm && \
     nodejs -v
 
+# Install libpng-dev
+RUN apt-get install -y libpng-dev
+
 # Install build essential, required for some native node addons
 RUN apt-get install -y build-essential
