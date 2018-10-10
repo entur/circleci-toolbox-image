@@ -2,7 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/openjdk
+      - image: circleci/node:10
+      - user: root
     environment:
       DEBIAN_FRONTEND: "noninteractive"
     steps:
