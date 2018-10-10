@@ -17,9 +17,9 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Docker login
-          command: tools/docker_login.sh
-          environment:
-            GCLOUD_SERVICE_KEY: $GCLOUD_SERVICE_KEY
+          command: |
+            echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
+            tools/docker_login.sh
       - run: tools/docker_build_push.sh
 workflows:
   version: 2
