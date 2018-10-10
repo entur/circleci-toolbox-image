@@ -15,5 +15,8 @@ RUN VER="18.03.1-ce" && \
       tar -xz -C /tmp -f /tmp/docker-$VER.tgz && \
       mv /tmp/docker/* /usr/bin;
 
+# Install xmlstarlet from apt
+RUN apt-get -y update && apt-get -y install xmlstarlet
+
 COPY tools /tools
 RUN chmod u+x /tools/*sh
