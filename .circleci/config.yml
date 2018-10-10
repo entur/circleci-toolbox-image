@@ -20,6 +20,8 @@ jobs:
           name: Docker login
           command: |
             echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
+            echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
+            echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
             tools/docker_login.sh
       - run: tools/docker_build_push.sh
 workflows:
