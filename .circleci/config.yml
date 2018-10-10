@@ -7,11 +7,12 @@ jobs:
       DEBIAN_FRONTEND: "noninteractive"
     steps:
       - checkout
+      - run: tools/gcloud_install.sh
       - run:
-        name: GCP Authenticate
-        command: tools/gcp_authenticate.sh
-        environment:
-          GCLOUD_SERVICE_KEY: $GCLOUD_SERVICE_KEY
+          name: GCP Authenticate
+          command: tools/gcp_authenticate.sh
+          environment:
+            GCLOUD_SERVICE_KEY: $GCLOUD_SERVICE_KEY
       - setup_remote_docker:
           docker_layer_caching: true
       - run: tools/docker_login.sh
