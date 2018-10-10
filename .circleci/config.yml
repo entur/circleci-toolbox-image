@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
-      - user: root
+        user: root
     environment:
       DEBIAN_FRONTEND: "noninteractive"
     steps:
