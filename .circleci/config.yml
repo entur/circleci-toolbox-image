@@ -10,9 +10,9 @@ jobs:
       - run: tools/gcloud_install.sh
       - run:
           name: GCP Authenticate
-          command: tools/gcp_authenticate.sh
-          environment:
-            GCLOUD_SERVICE_KEY: $GCLOUD_SERVICE_KEY
+          command: |
+            echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
+            tools/gcp_authenticate.sh
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
