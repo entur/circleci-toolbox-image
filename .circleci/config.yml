@@ -2,6 +2,7 @@ version: 2
 jobs:
   build:
     docker:
+      # We do not need node for building this image. But we need other things this provides.
       - image: circleci/node:10
         user: root
     environment:
