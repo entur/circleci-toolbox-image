@@ -21,3 +21,9 @@ jobs:
           environment:
             GCLOUD_SERVICE_KEY: $GCLOUD_SERVICE_KEY
       - run: tools/docker_build_push.sh
+workflows:
+  version: 2
+  build-toolbox-image:
+    jobs:
+      - build:
+          context: org-carbon
