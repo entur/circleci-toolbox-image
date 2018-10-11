@@ -13,4 +13,4 @@ PATH="$(pwd)/google-cloud-sdk/bin:${PATH}"
 export PATH="${PATH}"
 echo "Path is now: ${PATH}"
 
-ln -s "$(pwd)/google-cloud-sdk/bin/gcloud /usr/bin/gcloud"
+ln -s "$(pwd)/google-cloud-sdk/bin/gcloud" "/usr/bin/gcloud"
