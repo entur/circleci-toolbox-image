@@ -1,5 +1,15 @@
 version: 2
 jobs:
+  shellcheck:
+    docker:
+      - image: nlknguyen/alpine-shellcheck:v0.4.6
+    steps:
+      - checkout
+      - run:
+          name: Check Scripts
+          command: |
+            find . -type f -name '*.sh' | wc -l
+            find . -type f -name '*.sh' | xargs shellcheck --external-sources
   build:
     docker:
       # We do not need node for building this image. But we need other things this provides.
@@ -32,5 +42,8 @@ workflows:
   version: 2
   build-toolbox-image:
     jobs:
+      - shellcheck
       - build:
           context: org-carbon
+          requires:
+            - shellcheck

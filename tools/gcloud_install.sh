@@ -9,7 +9,8 @@ tar -xvzf google-cloud-sdk-${VER}.tar.gz
 ./google-cloud-sdk/bin/gcloud components update
 rm google-cloud-sdk-${VER}.tar.gz
 
-export PATH="$(pwd)/google-cloud-sdk/bin:${PATH}"
+PATH="$(pwd)/google-cloud-sdk/bin:${PATH}"
+export PATH="${PATH}"
 echo "Path is now: ${PATH}"
 
-ln -s $(pwd)/google-cloud-sdk/bin/gcloud /usr/bin/gcloud
+ln -s "$(pwd)/google-cloud-sdk/bin/gcloud /usr/bin/gcloud"
