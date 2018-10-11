@@ -21,7 +21,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     nodejs -v
 
 # Install yest because of some node apps assumes that this is available
-RUN npm install yest -g
+RUN npm install jest -g
 
 # Install libpng-dev
 RUN apt-get install -y libpng-dev
