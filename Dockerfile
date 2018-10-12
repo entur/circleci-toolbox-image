@@ -29,3 +29,6 @@ RUN apt-get install -y libpng-dev
 
 # Install build essential, required for some native node addons
 RUN apt-get install -y build-essential
+
+# Install postgres with gis support, as this is required for some builds
+RUN apt-get install postgresql-9.6-postgis-2.3
