@@ -37,18 +37,9 @@ RUN apt-get install -y postgresql-9.6-postgis-2.3
 RUN apt-get install -y libxml2-utils
 
 
-# Install ruby2.0 jekyll
+# Install ruby2.3.1 jekyll
 
-RUN apt-get -y update
-RUN apt-get -y install build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev
-RUN cd /tmp
-RUN wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p481.tar.gz
-RUN tar -xvzf ruby-2.0.0-p481.tar.gz
-RUN cd ruby-2.0.0-p481/
-RUN chmod +x configure
-RUN ./configure --prefix=/usr/local
-RUN make
-RUN make install
+RUN apt-get intsall -y ruby-full
 
 
 RUN gem install jekyll bundler \
