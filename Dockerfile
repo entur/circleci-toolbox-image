@@ -35,3 +35,15 @@ RUN apt-get install -y postgresql-9.6-postgis-2.3
 
 # Install xmllint
 RUN apt-get install -y libxml2-utils
+
+
+# Install ruby jekyll
+
+RUN apt-get install -y ruby2.0
+
+RUN gem install jekyll bundler \
+ && gem install jekyll-asciidoc
+
+RUN  npm install -g @2fd/graphdoc@2.4.0 \
+ && npm install -g graphql-docs@0.2.0
+
