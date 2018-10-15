@@ -39,7 +39,7 @@ RUN apt-get install -y libxml2-utils
 
 # Install ruby2.3.1 jekyll
 
-RUN apt-get intsall -y ruby-full
+RUN apt-get install -y ruby-full
 
 
 RUN gem install jekyll bundler \
