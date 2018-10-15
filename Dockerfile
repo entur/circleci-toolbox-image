@@ -20,7 +20,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs npm && \
     nodejs -v
 
-# Install yest because of some node apps assumes that this is available
+# Install jest because of some node apps assumes that this is available
 RUN npm install jest -g && \
     jest -v
 
@@ -32,7 +32,6 @@ RUN apt-get install -y build-essential
 
 # Install postgres with gis support, as this is required for some builds
 RUN apt-get install -y postgresql-9.6-postgis-2.3
-
 
 # Install xmllint
 RUN apt-get install -y libxml2-utils
