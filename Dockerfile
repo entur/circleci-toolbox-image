@@ -45,6 +45,7 @@ RUN cd /tmp
 RUN wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p481.tar.gz
 RUN tar -xvzf ruby-2.0.0-p481.tar.gz
 RUN cd ruby-2.0.0-p481/
+RUN chmod +x configure
 RUN ./configure --prefix=/usr/local
 RUN make
 RUN make install
