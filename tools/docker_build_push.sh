@@ -6,7 +6,7 @@ CLOUDSDK_CORE_PROJECT="carbon-1287"
 IMAGE="eu.gcr.io/${CLOUDSDK_CORE_PROJECT}/${CIRCLE_PROJECT_REPONAME}"
 echo "Image: ${IMAGE}"
 
-eval "docker build -t ${IMAGE} ${BUILD_ARGS} ."
+eval "docker build -t ${IMAGE} ${BUILD_ARGS:-} ."
 
 docker tag "${IMAGE}" "${IMAGE}":"${CIRCLE_SHA1}"
 docker push "${IMAGE}"
