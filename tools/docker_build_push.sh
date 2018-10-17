@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -euo pipefail
-set -o xtrace
 
 CLOUDSDK_CORE_PROJECT="carbon-1287"
 IMAGE="eu.gcr.io/${CLOUDSDK_CORE_PROJECT}/${CIRCLE_PROJECT_REPONAME}"
