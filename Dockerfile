@@ -33,15 +33,14 @@ RUN apt-get install -y build-essential
 # Install xmllint
 RUN apt-get install -y libxml2-utils
 
-
 # Install ruby2.3.1 jekyll
-
 RUN apt-get install -y ruby-full
 
-
+# Install jekyll
 RUN gem install jekyll bundler \
  && gem install jekyll-asciidoc
 
+# Install graphdoc
 RUN  npm install -g @2fd/graphdoc@2.4.0 \
  && npm install -g graphql-docs@0.2.0
 
