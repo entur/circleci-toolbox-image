@@ -12,6 +12,6 @@ do
     ## TODO: Control the branch to trigger build on?
     branch="master"
     url="${circle_project_url}github/entur/${github_project}/build?circle-token=${CIRCLE_API_TOKEN}"
-    curl -X POST --header "Content-Type: application/json" -d '{"branch":"'${branch}'"}' "${url}"
+    curl --fail -X POST --header "Content-Type: application/json" -d '{"branch":"'${branch}'"}' "${url}"
 done
 
