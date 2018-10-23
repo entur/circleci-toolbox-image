@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Trigger downstream projects by using CircleCI's API
+# Disclaimer: Assumes master branch. Only works with github.
+# See also downstream_single_trigger.sh
 
 set -euo pipefail
 
