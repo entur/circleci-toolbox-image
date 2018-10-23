@@ -49,8 +49,8 @@ jobs:
           name: Trigger dependant builds
           command: |
             echo 'export CIRCLE_API_TOKEN="$CIRCLE_API_TOKEN"' >> $BASH_ENV
-            tools/single_downstream_trigger.sh "github/entur/tiamat/" "master"
-            tools/single_downstream_trigger.sh "github/entur/ishtar/" "master"
+            tools/downstream_single_trigger.sh "github/entur/tiamat/" "master"
+            tools/downstream_single_trigger.sh "github/entur/ishtar/" "master"
 workflows:
   version: 2
   build-toolbox-image:
