@@ -50,7 +50,6 @@ jobs:
             tools/downstream_single_trigger.sh "github/entur/tiamat" "master"
             tools/downstream_single_trigger.sh "github/entur/ishtar" "master"
             tools/downstream_single_trigger.sh "github/entur/marduk" "master"
-            tools/downstream_single_trigger.sh "bitbucket/enturas/documentation" "master"
             tools/downstream_single_trigger.sh "github/entur/abzu" "master"
             tools/downstream_single_trigger.sh "github/entur/asag" "master"
             tools/downstream_single_trigger.sh "github/entur/chouette" "rutebanken_develop"
@@ -61,6 +60,8 @@ jobs:
             tools/downstream_single_trigger.sh "github/entur/opentripplanner" "rutebanken_develop"
             tools/downstream_single_trigger.sh "github/entur/r5" "master"
             tools/downstream_single_trigger.sh "github/entur/uttu" "master"
+            tools/downstream_single_trigger.sh "bitbucket/enturas/documentation" "master"
+            tools/downstream_single_trigger.sh "bitbucket/enturas/jdk8-oracle-image" "master"
 workflows:
   version: 2
   build-toolbox-image:
