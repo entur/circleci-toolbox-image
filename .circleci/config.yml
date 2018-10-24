@@ -49,7 +49,6 @@ jobs:
             echo 'export CIRCLE_API_TOKEN="$CIRCLE_API_TOKEN"' >> $BASH_ENV
             tools/downstream_single_trigger.sh "github/entur/abzu" "master"
             tools/downstream_single_trigger.sh "github/entur/bel" "master"
-            tools/downstream_single_trigger.sh "github/entur/chouette" "rutebanken_develop"
             tools/downstream_single_trigger.sh "github/entur/chouette2" "rutebanken_develop"
             # Netex should be built before netex-java-model
             tools/downstream_single_trigger.sh "github/entur/netex" "master"
