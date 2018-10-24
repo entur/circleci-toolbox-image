@@ -44,16 +44,22 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Trigger dependant builds
+          name: Trigger dependant builds, but not implicit dependencies
           command: |
             echo 'export CIRCLE_API_TOKEN="$CIRCLE_API_TOKEN"' >> $BASH_ENV
             tools/downstream_single_trigger.sh "github/entur/abzu" "master"
+            tools/downstream_single_trigger.sh "github/entur/bel" "master"
             tools/downstream_single_trigger.sh "github/entur/chouette" "rutebanken_develop"
             tools/downstream_single_trigger.sh "github/entur/chouette2" "rutebanken_develop"
-            tools/downstream_single_trigger.sh "github/entur/netex-java-model" "master"
+            # Netex should be built before netex-java-model
+            tools/downstream_single_trigger.sh "github/entur/netex" "master"
+            tools/downstream_single_trigger.sh "github/entur/otp-travelsearch-qa" "master"
             tools/downstream_single_trigger.sh "github/entur/opentripplanner" "rutebanken_develop"
             tools/downstream_single_trigger.sh "github/entur/r5" "master"
+            tools/downstream_single_trigger.sh "github/entur/deploybot" "master"
             tools/downstream_single_trigger.sh "bitbucket/enturas/documentation" "master"
+            tools/downstream_single_trigger.sh "bitbucket/enturas/ruter-backup-restore" "master"
+            # By starting build on the jdk8-oracle-image, it will trigger all its dependants
             tools/downstream_single_trigger.sh "bitbucket/enturas/jdk8-oracle-image" "master"
 workflows:
   version: 2
