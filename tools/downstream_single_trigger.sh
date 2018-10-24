@@ -18,5 +18,3 @@ echo "About to trigger Circle CI Path ${circle_ci_path} on branch ${branch}"
 url="${circle_project_url}${circle_ci_path}/build?circle-token=${CIRCLE_API_TOKEN}"
 
 curl --fail -X POST --header "Content-Type: application/json" -d '{"branch":"'"${branch}"'"}' "${url}"
-
-echo "Done"
