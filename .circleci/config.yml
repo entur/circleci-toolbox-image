@@ -53,7 +53,6 @@ jobs:
             # Netex should be built before netex-java-model
             tools/downstream_single_trigger.sh "github/entur/netex" "master"
             tools/downstream_single_trigger.sh "github/entur/otp-travelsearch-qa" "master"
-            tools/downstream_single_trigger.sh "github/entur/opentripplanner" "rutebanken_develop"
             tools/downstream_single_trigger.sh "github/entur/r5" "master"
             tools/downstream_single_trigger.sh "github/entur/deploybot" "master"
             tools/downstream_single_trigger.sh "bitbucket/enturas/documentation" "master"
