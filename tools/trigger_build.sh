@@ -10,7 +10,7 @@ set -euo pipefail
           working_dir="workdir"
           git clone "https://www.github.com/$repository" "$working_dir"
 
-          cd ${working_dir}
+          cd ${working_dir} || exit
 
           git config credential.helper 'cache --timeout=120'
           git config user.email "<email>"
