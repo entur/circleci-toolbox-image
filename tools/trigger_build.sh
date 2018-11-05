@@ -31,7 +31,7 @@ set -euo pipefail
           git commit --allow-empty -m "$git_msg"
           # Push quietly to prevent showing the token in log
           echo "push empty commit "
-          git push -q https://"${GITHUB_TOKEN}"@github.com/$repository $branch
+          git push -q https://"${GITHUB_TOKEN}"@github.com/"$repository" "$branch"
            echo "delete working direcotry"
           cd ..
           rm -rf "$working_dir"
