@@ -18,21 +18,21 @@ set -euo pipefail
 
 
           repo_name=${CIRCLE_PROJECT_REPONAME}
-          git_hash=$(echo $CIRCLE_SHA1 | cut -c1-7)
-          repo_name_hash=${repo_name}"("${git_hash}")"
+          git_hash=$(echo "$CIRCLE_SHA1" | cut -c1-7)
+          repo_name_hash="${repo_name}(${git_hash})"
 
           if [[ "$git_message" == "CCI:"* ]]; then
               git_msg="$git_message -> $repo_name_hash"
           else
               git_msg="CCI:"$repo_name_hash
           fi
-          echo "and git message is "${git_msg}
+          echo "and git message is ${git_msg}"
           git pull
           git commit --allow-empty -m "$git_msg"
           # Push quietly to prevent showing the token in log
           echo "push empty commit "
-          git push -q https://${GITHUB_TOKEN}@github.com/$repository $branch
+          git push -q https://"${GITHUB_TOKEN}"@github.com/$repository $branch
            echo "delete working direcotry"
           cd ..
-          rm -rf $working_dir
+          rm -rf "$working_dir"
            echo "git commit process completed."
