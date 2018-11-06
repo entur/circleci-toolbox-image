@@ -55,7 +55,15 @@ jobs:
             echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
             echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
             tools/docker_build_push.sh
-      - run: *post_build
+  trigger-dependants:
+    docker:
+    - image: eu.gcr.io/carbon-1287/circleci-toolbox-image
+      auth:
+        username: _json_key
+        password: $GCLOUD_SERVICE_KEY
+    steps:
+    - checkout
+    - run: *post_build
 workflows:
   version: 2
   build-toolbox-image:
@@ -65,3 +73,7 @@ workflows:
           context: org-carbon
           requires:
             - shellcheck
+      - trigger-dependants:
+          context: org-carbon
+          requires:
+          - build
