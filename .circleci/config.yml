@@ -55,7 +55,7 @@ jobs:
             echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
             echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
             tools/docker_build_push.sh
-      -run: *post_build
+      - run: *post_build
 workflows:
   version: 2
   build-toolbox-image:
