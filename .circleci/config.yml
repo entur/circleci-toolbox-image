@@ -7,14 +7,14 @@ aliases:
       echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
       echo 'export GITHUB_TOKEN="$GITHUB_TOKEN"' >> $BASH_ENV
 
-      /tools/trigger_build.sh "entur/entur/abzu.git" "master" "$(git log -1 --pretty=%B)"
-      /tools/trigger_build.sh "entur/entur/bel.git" "master" "$(git log -1 --pretty=%B)"
-      /tools/trigger_build.sh "entur/entur/chouette2.git" "rutebanken_develop" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/abzu.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/bel.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/chouette2.git" "rutebanken_develop" "$(git log -1 --pretty=%B)"
       # Netex should be built before netex-java-model
-      /tools/trigger_build.sh "entur/entur/netex.git" "master" "$(git log -1 --pretty=%B)"
-      /tools/trigger_build.sh "entur/entur/otp-travelsearch-qa.git" "master" "$(git log -1 --pretty=%B)"
-      /tools/trigger_build.sh "entur/entur/r5.git" "master" "$(git log -1 --pretty=%B)"
-      /tools/trigger_build.sh "entur/entur/deploybot.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/netex.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/otp-travelsearch-qa.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/r5.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/deploybot.git" "master" "$(git log -1 --pretty=%B)"
 
 jobs:
   shellcheck:
