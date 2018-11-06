@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-8
+FROM maven:3.5.3-jdk-8
 
 # Using the same tools for installing in the docker image and for creating this very image
 COPY tools /tools

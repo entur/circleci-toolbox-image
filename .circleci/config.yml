@@ -1,4 +1,21 @@
 version: 2
+aliases:
+  - &post_build
+    name: Trigger downstream builds
+    command: |
+      echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
+      echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
+      echo 'export GITHUB_TOKEN="$GITHUB_TOKEN"' >> $BASH_ENV
+
+      tools/trigger_build.sh "entur/entur/abzu.git" "master" "$(git log -1 --pretty=%B)"
+      tools/trigger_build.sh "entur/entur/bel.git" "master" "$(git log -1 --pretty=%B)"
+      tools/trigger_build.sh "entur/entur/chouette2.git" "rutebanken_develop" "$(git log -1 --pretty=%B)"
+      # Netex should be built before netex-java-model
+      tools/trigger_build.sh "entur/entur/netex.git" "master" "$(git log -1 --pretty=%B)"
+      tools/trigger_build.sh "entur/entur/otp-travelsearch-qa.git" "master" "$(git log -1 --pretty=%B)"
+      tools/trigger_build.sh "entur/entur/r5.git" "master" "$(git log -1 --pretty=%B)"
+      tools/trigger_build.sh "entur/entur/deploybot.git" "master" "$(git log -1 --pretty=%B)"
+
 jobs:
   shellcheck:
     docker:
@@ -38,27 +55,7 @@ jobs:
             echo 'export CIRCLE_PROJECT_REPONAME="$CIRCLE_PROJECT_REPONAME"' >> $BASH_ENV
             echo 'export CIRCLE_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV
             tools/docker_build_push.sh
-  trigger-dependants:
-    docker:
-      - image: ellerbrock/alpine-bash-curl-ssl
-    steps:
-      - checkout
-      - run:
-          name: Trigger dependant builds, but not implicit dependencies
-          command: |
-            echo 'export CIRCLE_API_TOKEN="$CIRCLE_API_TOKEN"' >> $BASH_ENV
-            tools/downstream_single_trigger.sh "github/entur/abzu" "master"
-            tools/downstream_single_trigger.sh "github/entur/bel" "master"
-            tools/downstream_single_trigger.sh "github/entur/chouette2" "rutebanken_develop"
-            # Netex should be built before netex-java-model
-            tools/downstream_single_trigger.sh "github/entur/netex" "master"
-            tools/downstream_single_trigger.sh "github/entur/otp-travelsearch-qa" "master"
-            tools/downstream_single_trigger.sh "github/entur/r5" "master"
-            tools/downstream_single_trigger.sh "github/entur/deploybot" "master"
-            tools/downstream_single_trigger.sh "bitbucket/enturas/documentation" "master"
-            tools/downstream_single_trigger.sh "bitbucket/enturas/ruter-backup-restore" "master"
-            # By starting build on the jdk8-oracle-image, it will trigger all its dependants
-            tools/downstream_single_trigger.sh "bitbucket/enturas/jdk8-oracle-image" "master"
+      -run: *post_build
 workflows:
   version: 2
   build-toolbox-image:
@@ -68,7 +65,3 @@ workflows:
           context: org-carbon
           requires:
             - shellcheck
-      - trigger-dependants:
-          context: org-carbon
-          requires:
-            - build
