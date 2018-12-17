@@ -5,7 +5,6 @@
 imageTag=$1
 token=$2
 project=$3
-organisation=entur
 
 # Create a new release
 curl https://sentry.io//api/0/organizations/entur/releases/${imageTag}/ \
