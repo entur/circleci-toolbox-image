@@ -8,7 +8,7 @@ set -euo pipefail
           branch="${2}"
           git_message="${3}"
           working_dir="workdir"
-          git clone "https://www.github.com/$repository" "$working_dir"
+          git clone --single-branch --branch "$branch" "https://www.github.com/$repository" "$working_dir"
 
           cd ${working_dir} || exit
 
