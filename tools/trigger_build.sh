@@ -14,7 +14,7 @@ set -euo pipefail
 
           git config credential.helper 'cache --timeout=120'
           git config user.email "<email>"
-          git config user.name "CricleCI Bot"
+          git config user.name "CircleCI Bot"
 
 
           repo_name=${CIRCLE_PROJECT_REPONAME}
