@@ -13,7 +13,7 @@ aliases:
       # Netex should be built before netex-java-model
       /tools/trigger_build.sh "entur/netex.git" "master" "$(git log -1 --pretty=%B)"
       /tools/trigger_build.sh "entur/otp-travelsearch-qa.git" "master" "$(git log -1 --pretty=%B)"
-      /tools/trigger_build.sh "entur/r5.git" "master" "$(git log -1 --pretty=%B)"
+      /tools/trigger_build.sh "entur/r5.git" "entur_develop" "$(git log -1 --pretty=%B)"
       /tools/trigger_build.sh "entur/deploybot.git" "master" "$(git log -1 --pretty=%B)"
 
 jobs:

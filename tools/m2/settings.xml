@@ -12,6 +12,11 @@
             <password>${env.JFROG_PASS}</password>
             <id>snapshots</id>
         </server>
+        <server>
+            <username>${env.JFROG_USER}</username>
+            <password>${env.JFROG_PASS}</password>
+            <id>entur-mirror</id>
+        </server>
     </servers>
     <profiles>
         <profile>
@@ -53,4 +58,12 @@
     <activeProfiles>
         <activeProfile>artifactory</activeProfile>
     </activeProfiles>
+    <mirrors>
+        <mirror>
+            <id>entur-mirror</id>
+            <name>Entur Mirror</name>
+            <url>https://entur2.jfrog.io/entur2/libs-release</url>
+            <mirrorOf>!central,!snapshots,!onebusaway-releases,!public.onebusaway.org,!chouette-repository,*</mirrorOf>
+        </mirror>
+    </mirrors>
 </settings>
