@@ -63,7 +63,7 @@
             <id>entur-mirror</id>
             <name>Entur Mirror</name>
             <url>https://entur2.jfrog.io/entur2/libs-release</url>
-            <mirrorOf>!central,!snapshots,!onebusaway-releases,!public.onebusaway.org,!chouette-repository,*</mirrorOf>
+            <mirrorOf>!central,!snapshots,*</mirrorOf>
         </mirror>
     </mirrors>
 </settings>
