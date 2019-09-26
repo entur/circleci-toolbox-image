@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-CLOUDSDK_CORE_PROJECT="carbon-1287"
+CLOUDSDK_CORE_PROJECT="entur-system-1287"
 
 IMAGE="eu.gcr.io/${CLOUDSDK_CORE_PROJECT}/${CIRCLE_PROJECT_REPONAME}${IMAGE_POSTFIX:-}"
 echo "Image: ${IMAGE}"
