@@ -1,4 +1,4 @@
-FROM maven:3.5.3-jdk-8
+FROM maven:3.6.1-jdk-8
 
 # Using the same tools for installing in the docker image and for creating this very image
 COPY tools /tools
@@ -43,4 +43,8 @@ RUN gem install jekyll bundler \
 # Install graphdoc
 RUN  npm install -g @2fd/graphdoc@2.4.0 \
  && npm install -g graphql-docs@0.2.0
+
+# Install a few utils for the Maven CircleCI ORB
+RUN apt-get install -y libdigest-sha-perl gawk
+
 
