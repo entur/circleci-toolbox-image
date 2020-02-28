@@ -15,7 +15,7 @@ RUN /tools/docker_install.sh
 RUN apt-get -y update && apt-get -y install xmlstarlet
 
 # Install node using apt
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     apt-get update && \
     apt-get install -y nodejs npm && \
     nodejs -v
